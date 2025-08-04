@@ -1,13 +1,11 @@
 import time
-from gpiozero import MCP3008, Device
-from gpiozero.pins.pigpio import PiGPIOFactory
+from gpiozero import MCP3008
 from google.cloud import bigquery
 from datetime import datetime
 from typing import TypedDict, List
 
 client = bigquery.Client.from_service_account_json("it_bigquery_secret.json")
 table_ref = client.dataset("yuto_test").table("test_table")
-
 
 moisture_sensor = MCP3008(channel=0)
 
